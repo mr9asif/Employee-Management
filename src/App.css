@@ -1,0 +1,59 @@
+#app {
+  height: 100%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  /* background: #eee; */
+  
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.slide1{
+  background-image: url('https://i.postimg.cc/SK8JCsZJ/image.jpg');
+  background-size: cover;
+}
+.slide2{
+  background-image: url('https://i.postimg.cc/44MyLVrm/group.jpg');
+  background-size: cover;
+}
+.slide3{
+  background-image: url('https://i.postimg.cc/W3mRGLLG/creating-image-assets-in-photoshop.jpg');
+  background-size: cover;
+}
+.slide4{
+  background-image: url('https://i.postimg.cc/28yZKCcS/business-meeting-in-modern-conference-room-QPQSEZT-scaled.jpg');
+  background-size: cover;
+}
