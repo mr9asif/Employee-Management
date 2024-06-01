@@ -15,8 +15,8 @@ const AboutUs = () => {
         <div  data-aos="fade-down"
         data-aos-duration="3000" className="bg-gray-500 md:w-[600px] lg:w-[1000px] h-[430px] md:h-[460px] lg:h-[560px] p-6 relative md:right-10 lg:right-16">
          <h2 className="text-xl lg:text-2xl font-bold text-green-900">ABOUT US</h2>
-         <h3 className="text-2xl lg:text-4xl text-gray-400 font-bold mb-2 mt-1">We Provide Best Blogs in our Website!</h3>
-         <p className="text-[13px] lg:text-[16px] mb-3 text-gray-800">BlogNestle is dedicated to providing nourishing content that informs, inspires, and satisfies our community</p>
+         <h3 className="text-2xl lg:text-4xl text-gray-400 font-bold mb-2 mt-1">We Provide Best Service in our Website!</h3>
+         <p className="text-[13px] lg:text-[16px] mb-3 text-gray-800">EmpowerManage is Your all-in-one solution for seamless employee management and optimization.</p>
           <div className="flex items-center gap-3">
           <img data-aos="flip-right" data-aos-duration="1500" className="w-[90px] md:w-[140px] lg:w-[260px]" src="https://i.postimg.cc/3wXJjMx3/Easy-device-streaming-on-the-meeting-room-display-with-the-new-Display-Note-Launcher-Video-Source-Sho.jpg" alt="" />
           <img data-aos="flip-left" data-aos-duration="1500" className="w-[90px] md:w-[120px] lg:w-[210px]" src="https://freerangestock.com/sample/119865/business-meeting--conference-room--people--corporate-life.jpg" alt="" />

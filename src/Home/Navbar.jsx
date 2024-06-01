@@ -14,9 +14,9 @@ const Navbar = () => {
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <NavLink to='/' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-black font-bold'}>HOME</NavLink>
-                            <NavLink to='/contactus' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-black font-bold'}>CONTACT US</NavLink>
+                            <NavLink to='/allservices' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-black font-bold'}>ALL SERVICES</NavLink>
                             <NavLink to='/dashboard' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-black font-bold'}>DASHBOARD</NavLink>
-                            <NavLink to='/menu' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-black font-bold'}>OUR MENU</NavLink>
+                            <NavLink to='/about' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-black font-bold'}>ABOUT US</NavLink>
                           {
                               <NavLink to='/shop/salad' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-black font-bold'}>OUR SHOP</NavLink>
                           }
@@ -31,9 +31,9 @@ const Navbar = () => {
                     <div className="hidden lg:flex justify-center items-center">
                         <ul className="menu menu-horizontal px-1 gap-5">
                             <NavLink to='/' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-white font-bold'}>HOME</NavLink>
-                            <NavLink to='/contactus' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-white font-bold'}>CONTACT US</NavLink>
+                            <NavLink to='/allservices' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-white font-bold'}>ALL SERVICES</NavLink>
                             <NavLink to='/dashboard' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-white font-bold'}>DASHBOARD</NavLink>
-                            <NavLink to='/menu' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-white font-bold'}>OUR MENU</NavLink>
+                            <NavLink to='/about' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-white font-bold'}>ABOUT US</NavLink>
                             {
                                  <NavLink to='/shop/salad' className={({ isActive }) => isActive ? 'text-[#EEFF25] font-bold' : 'text-white font-bold'}>OUR SHOP</NavLink>
                             }

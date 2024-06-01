@@ -40,7 +40,7 @@ const Testimonial = () => {
              <img className='border rounded-[50%]' src="https://i.postimg.cc/CKkBtRwm/handsome-bearded-guy-posing-against-white-wall-273609-20597.jpg" alt="" />
             </div>
             <div className=''>
-            <p className='text-[13px] font-semibold text-gray-700'>Smooth booking, great tips, excellent experience. Highly recommend TRAVELER!</p>
+            <p className='text-[13px] font-semibold text-gray-700'>EmpowerManage has streamlined our HR processes, providing valuable insights and exceptional support. It's a game-changer for our organization.</p>
                <h1 className='text-xl font-bold text-gray-500'>Client Name</h1>
                 <h3 className='text-xl font-bold text-orange-800'>JHON WICK</h3>
             </div>
@@ -53,7 +53,7 @@ const Testimonial = () => {
              <img className='border rounded-[50%]' src="https://i.postimg.cc/3rC2g1tF/young-bearded-man-with-striped-shirt-273609-5677.jpg" alt="" />
             </div>
             <div className=''>
-            <p className='text-[13px] font-semibold text-gray-700'>TRAVELER exceeded my expectations! Flawless booking, incredible destinations, fantastic service.</p>
+            <p className='text-[13px] font-semibold text-gray-700'>EmpowerManage is scalable, feature-rich, and affordable. It's been instrumental in helping us grow while maintaining employee satisfaction.</p>
                <h1 className='text-xl font-bold text-gray-500'>Client Name</h1>
                 <h3 className='text-xl font-bold text-orange-800'>ATLAN</h3>
             </div>
@@ -66,7 +66,7 @@ const Testimonial = () => {
              <img className='border rounded-[50%]' src="https://i.postimg.cc/jSzT5Wx2/cheerful-dark-skinned-woman-smiling-broadly-rejoicing-her-victory-competition-among-young-writers-st.jpg" alt="" />
             </div>
             <div className=''>
-            <p className='text-[13px] font-semibold text-gray-700'>Unforgettable journey thanks to TRAVELER! Seamless booking, breathtaking destinations, top-notch recommendations.</p>
+            <p className='text-[13px] font-semibold text-gray-700'>EmpowerManage has been a lifesaver for our small business, handling everything from scheduling to benefits management. It's exceeded our expectations.</p>
                <h1 className='text-xl font-bold text-gray-500'>Client Name</h1>
                 <h3 className='text-xl font-bold text-orange-800'>RAKA</h3>
             </div>
@@ -78,7 +78,7 @@ const Testimonial = () => {
              <img className='border rounded-[50%]' src="https://i.postimg.cc/Gt8FJnt7/portrait-handsome-caucasian-man-formal-260nw-2142820441.jpg" alt="" />
             </div>
             <div className=''>
-            <p className='text-[13px] font-semibold text-gray-700'>TRAVELER made trip planning a breeze! Exceptional service, valuable insights, unforgettable memories.</p>
+            <p className='text-[13px] font-semibold text-gray-700'>EmpowerManage has automated manual HR tasks, delivering valuable insights and efficiency gains. It's a worthwhile investment for any business.</p>
                <h1 className='text-xl font-bold text-gray-500'>Client Name</h1>
                 <h3 className='text-xl font-bold text-orange-800'>RYAN</h3>
             </div>
@@ -91,7 +91,7 @@ const Testimonial = () => {
              <img className='border rounded-[50%]' src="https://i.postimg.cc/pyb7bZnZ/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair-285396-896.jpg" alt="" />
             </div>
             <div className=''>
-            <p className='text-[13px] font-semibold text-gray-700'>Highly impressed with TRAVELER! Seamless booking, diverse destinations, exceptional customer service. 10/10!</p>
+            <p className='text-[13px] font-semibold text-gray-700'>EmpowerManage streamlines HR with insights and support.</p>
                <h1 className='text-xl font-bold text-gray-500'>Client Name</h1>
                 <h3 className='text-xl font-bold text-orange-800'>PILU</h3>
             </div>

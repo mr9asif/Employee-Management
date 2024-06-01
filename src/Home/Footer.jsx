@@ -7,10 +7,10 @@ const Footer = () => {
         <footer className="footer p-10 bg-neutral text-neutral-content">
         <nav>
           <h6 className="footer-title">Services</h6> 
-          <a className="link link-hover">bloging</a>
-          <a className="link link-hover">books</a>
+          <a className="link link-hover">Employee management</a>
+          <a className="link link-hover">Payroll Processing</a>
           <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <a className="link link-hover">Employee Self-Service Portals</a>
         </nav> 
         <nav>
           <h6 className="footer-title">Company</h6> 
