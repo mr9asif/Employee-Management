@@ -130,7 +130,7 @@ const Signup = () => {
               </label>
               <h1 className='my-4 text-red-400'>{error}</h1>
               <div className="form-control mt-6">
-                <button type='submit' className="btn btn-primary bg-orange-400 hover:bg-orange-700">Sign Up</button>
+                <button type='submit' className="btn btn-primary  bg-green-500 hover:bg-green-700">Sign Up</button>
               </div>
             </form>
           </div>

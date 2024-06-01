@@ -54,10 +54,10 @@ const Navbar = () => {
                     </div>
                     <div className="mx-3 flex justify-center items-center gap-4">
                      {
-                        user ? <div>
-                        
+                        user ? <div className="flex items-center gap-2">
+                        <img className="w-[50px] h-[50px] rounded-[50%] border" src={user.photoURL} />
                         <Link to='/login'><button onClick={Signout} className="btn bg-green-500 hover:bg-green-700 text-white ">Sign Out</button></Link>
-                        </div>: <div>
+                        </div>: <div className="flex items-center gap-2">
                         <Link to='/signup' className="btn  bg-green-500 hover:bg-green-700 text-white ">Sign Up</Link>
                         <Link to='/login' className="btn bg-green-500 hover:bg-green-700 text-white ">Log In</Link>
                         </div>
