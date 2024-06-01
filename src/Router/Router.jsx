@@ -6,6 +6,8 @@ import Root from "../Layout/Root";
 import Home from "../Home/Home";
 import AllServices from "../Page/AllServices";
 import ViewDetails from "../Page/ViewDetails";
+import Login from '../Page/Login'
+import Signup from "../Page/Signup";
 
 
 
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
         {
             path:'/viewdetails/:id',
             element:<ViewDetails></ViewDetails>
+        },
+        {
+          path:'/login',
+          element:<Login></Login>
+        },
+        {
+          path:'/signup',
+          element:<Signup></Signup>
         }
       ]
     },
