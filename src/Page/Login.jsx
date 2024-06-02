@@ -1,78 +1,53 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
-import Swal from "sweetalert2";
-import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
-import axios from "axios";
 import { Context } from '../AuthProvider/Authprovider';
+import axios from 'axios';
+import useSecurePublic from '../Hook/useSecurePublic';
 
 const Login = () => {
-    const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
+  const [error, setError] = useState('');
+  const { GoogleLogin, GithubLogin, Login } = useContext(Context);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state || '/';
+ const axiosSecurePublic=useSecurePublic()
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const [error, setError] = useState('')
-     const {        Login,
-       signout,         GoogleLogin,
-       GithibSignIn} = useContext(Context);
-    const location = useLocation();
-    const navigate = useNavigate()
-    console.log(location)
-     const from = location?.state || '/';
-   
-   
-  
-   const {register,handleSubmit, formState: { errors },} = useForm()
-  
-  
-  
-  const handleSocialLogin = socialLogin =>{
-      socialLogin()
-      .then(result=>{
-        if(result.user){
-          // const { email } = result.user;
-          // const us = { email };
-          console.log(result.user)
-          navigate(from)
-  
-          // axios.post('https://as-11-server.vercel.app/jwt', us ,  {withCredentials:true})
-          // .then(res => {
-          //     console.log(res.data);
-          // })
-          // .catch(error => {
-          //     console.log(error.message);
-          // });
-        }
-      })
-     }
-  
-  
-  
-   const onSubmit=  data => {
-     console.log(data)
-     const {email, password, } = data;
-     Login(email, password,)
-     .then(result=>{
-       if(result.user){
-         toast.success('You Login Successfully!')
-         console.log(result.user)
-        //  const us = { email };
-         navigate(from)
-        //  axios.post('https://as-11-server.vercel.app/jwt', us ,  {withCredentials:true})
-        //  .then(res => {
-        //      console.log(res.data);
-        //  })
-        //  .catch(error => {
-        //      console.log(error.message);
-        //  });
-       }
-     })
-     .catch(error=>{
-       console.log(error)
-       setError('invalid Email or Password!')
-     })}
+  const handleSocialLogin = async (socialLogin) => {
+      try {
+          const result = await socialLogin();
+          if (result.user) {
+              console.log(result.user);
+
+              // Assign the role "Employee"
+              await axiosSecurePublic.post('/social', { email: result.user.email, role: 'Employee' });
+
+              toast.success('You Login Successfully!');
+              navigate(from);
+          }
+      } catch (error) {
+          console.error(error);
+          setError('Failed to login with social account');
+      }
+  };
+
+  const onSubmit = async (data) => {
+      const { email, password } = data;
+      try {
+          const result = await Login(email, password);
+          if (result.user) {
+              toast.success('You Login Successfully!');
+              navigate(from);
+          }
+      } catch (error) {
+          console.error(error);
+          setError('Invalid Email or Password!');
+      }
+  };
 
     return (
         <div  className=" md:flex lg:flex justify-between items-center max-w-6xl mx-auto px-5 ">
@@ -118,7 +93,7 @@ const Login = () => {
           
             <p className="mt-4 text-center text-gray-600 dark:text-gray-400">or sign in with</p>
 
-          <div onClick={()=>handleSocialLogin(GoogleLogin)}>
+          <div onClick={() => handleSocialLogin(GoogleLogin)}>
           <a  href="#" className="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
           <svg className="w-6 h-6 mx-2" viewBox="0 0 40 40">
               <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#FFC107" />

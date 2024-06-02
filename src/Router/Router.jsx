@@ -8,6 +8,7 @@ import AllServices from "../Page/AllServices";
 import ViewDetails from "../Page/ViewDetails";
 import Login from '../Page/Login'
 import Signup from "../Page/Signup";
+import Dashboard from "../EmployeDashboard/Dashboard";
 
 
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         {
           path:'/signup',
           element:<Signup></Signup>
+        },
+        {
+          path:'/emdashboard',
+          element:<Dashboard></Dashboard>
         }
       ]
     },
