@@ -23,9 +23,11 @@ const GoogleLogin = ()=>{
 const CreateUser = (email, password)=>{
     setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password)
+    
 }
 // update profile
 const Profile = (displayName, photoURL) => {
+    setLoading(true)
     return updateProfile(auth.currentUser, {
       displayName: displayName,
       photoURL: photoURL

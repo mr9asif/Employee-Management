@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
@@ -13,19 +13,44 @@ const imageUrl = `https://api.imgbb.com/1/upload?key=${imageFromImgbb}`;
 const Signup = () => {
   const { CreateUser, Profile } = useContext(Context);
   const [error, setError] = useState('');
+  const [salary, setSalary] = useState('');
+  const [designation, setDesignation] = useState('');
   const location = useLocation();
   const dis = location.state || '/';
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const axiosSecurePublic = useSecurePublic();
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
+  const watchRole = watch("role");
+
+  useEffect(() => {
+    if (watchRole === "Employee") {
+      switch (designation) {
+        case "sales":
+          setSalary(30000);
+          break;
+        case "social":
+          setSalary(35000);
+          break;
+        case "digital":
+          setSalary(40000);
+          break;
+        default:
+          setSalary(30000); // Default salary for employees if no designation is selected
+      }
+    } else if (watchRole === "HR") {
+      setSalary(45000); // Default salary for HR role
+    } else {
+      setSalary(''); // Clear salary if no role is selected
+    }
+  }, [designation, watchRole]);
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
+      console.log("Form data:", data);
       const Carent = await CreateUser(data.email, data.password);
-      console.log(Carent.user);
+      console.log("Created user:", Carent.user);
 
       const imageFile = new FormData();
       imageFile.append("image", data.image[0]);
@@ -34,9 +59,11 @@ const Signup = () => {
         headers: { "content-type": "multipart/form-data" },
       });
 
+      console.log("Image upload response:", res.data);
+
       if (res.data.success) {
         const uploadedImageUrl = res.data.data.display_url;
-        const Role = res.data.data.role;
+        const Role = data.role; // Use the role from form data
 
         await Profile(data.DisplayName, uploadedImageUrl, Role);
 
@@ -44,10 +71,15 @@ const Signup = () => {
           name: data.DisplayName,
           email: data.email,
           role: data.role,
-          photoURL: uploadedImageUrl
+          designation: data.designation,
+          salary: salary,
+          photoURL: uploadedImageUrl,
+          isVerified: false,
         };
 
-        await axiosSecurePublic.post('/users', userInfo);
+        const userResponse = await axiosSecurePublic.post('/users', userInfo);
+
+        console.log("User info saved response:", userResponse.data);
 
         toast.success('Sign up successfully!');
         navigate(dis);
@@ -55,7 +87,7 @@ const Signup = () => {
         setError('Image upload failed.');
       }
     } catch (error) {
-      console.log(error);
+      console.log("Signup error:", error);
       setError(error.message);
     }
   };
@@ -125,6 +157,38 @@ const Signup = () => {
                 </select>
                 {errors.role && <span>Role is required</span>}
               </div>
+              {watchRole === "Employee" && (
+                <>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="text-xl font-semibold">Designation</span>
+                    </label>
+                    <select {...register("designation", { required: true })} className="input input-bordered" required onChange={(e) => setDesignation(e.target.value)}>
+                      <option value="">Select Designation</option>
+                      <option value="sales"> Sales Assistant</option>
+                      <option value="social">Social Media executive</option>
+                      <option value="digital"> Digital Marketer</option>
+                    </select>
+                    {errors.designation && <span>Designation is required</span>}
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="text-xl font-semibold">Salary</span>
+                    </label>
+                    <input type="number" {...register("salary", { required: true, valueAsNumber: true })} placeholder="Your Salary" className="input input-bordered" value={salary} readOnly />
+                    {errors.salary && <span>Salary is required</span>}
+                  </div>
+                </>
+              )}
+              {watchRole === "HR" && (
+                <div className="form-control">
+                  <label className="label">
+                    <span className="text-xl font-semibold">Salary</span>
+                  </label>
+                  <input type="number" {...register("salary", { required: true, valueAsNumber: true })} placeholder="Your Salary" className="input input-bordered" value={salary} readOnly />
+                  {errors.salary && <span>Salary is required</span>}
+                </div>
+              )}
               <label className="label">
                 <h1 className="label-text-alt text-[15px]">Already Registered? Go to <Link to='/login' className="font-bold underline relative">Login</Link></h1>
               </label>

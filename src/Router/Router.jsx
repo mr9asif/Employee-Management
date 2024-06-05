@@ -9,6 +9,7 @@ import ViewDetails from "../Page/ViewDetails";
 import Login from '../Page/Login'
 import Signup from "../Page/Signup";
 import Dashboard from "../EmployeDashboard/Dashboard";
+import HrDashboard from "../HrDashboard/HrDashboard";
 
 
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
         {
           path:'/emdashboard',
           element:<Dashboard></Dashboard>
+        },
+        {
+          path:'/hrdashboard',
+          element:<HrDashboard></HrDashboard>
         }
       ]
     },
