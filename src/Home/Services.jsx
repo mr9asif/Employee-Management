@@ -17,7 +17,7 @@ const Services = () => {
     });
 
     // Log the data to console (for debugging purposes)
-    console.log(data);
+
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error loading services</div>;

@@ -73,7 +73,8 @@ const Signout = ()=>{
         Signout,
         Profile,
         GoogleLogin,
-        loading
+        loading,
+        setLoading
 
     }
     return (

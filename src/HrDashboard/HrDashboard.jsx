@@ -3,6 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import useSecurePublic from '../Hook/useSecurePublic';
 import { Link } from 'react-router-dom';
 import Modal from './Modal'; // Import the Modal component
+import WorkRecordsPage from './WorkRecordsPage';
 
 const HrDashboard = () => {
   const axiosSecurePublic = useSecurePublic();
@@ -58,7 +59,7 @@ const HrDashboard = () => {
   };
 
   const handlePay = () => {
-    console.log('Paying employee:', selectedEmployee);
+  
     // Implement the logic for paying the employee here
     setIsModalOpen(false);
   };
@@ -85,6 +86,9 @@ const HrDashboard = () => {
 
   return (
     <div className="p-4 max-w-7xl mx-auto pt-24">
+      <div>
+      {/* work sheet filter*/}
+      </div>
       <table className="min-w-full border border-gray-200 ">
         <thead>
           <tr className="bg-gray-100">

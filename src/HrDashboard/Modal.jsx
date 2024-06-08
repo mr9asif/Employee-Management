@@ -69,6 +69,7 @@ const Modal = ({ isOpen, onClose, employee, worksheets, onPay }) => {
       month: selectedMonth,
       salary: employee.salary,
       bank_account: bank_account,
+      email:employee.email,
     };
 
     try {

@@ -6,6 +6,14 @@ import useSecurePublic from '../Hook/useSecurePublic';
 const Chart = ({ bank_account }) => {
   const axiosSecurePublic = useSecurePublic();
 
+  const getMonthName = (monthNumber) => {
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    return months[monthNumber - 1];
+  };
+
   const { data: paymentData, isLoading, isError } = useQuery({
     queryKey: ['pay', bank_account],
     queryFn: async () => {
@@ -27,8 +35,8 @@ const Chart = ({ bank_account }) => {
     return <div>No data available</div>;
   }
 
-  // Assuming the paymentData is in the format [{ month: 'January', salary: 4000 }, ...]
-  const xLabels = paymentData.map(dataPoint => dataPoint.month);
+  // Assuming the paymentData is in the format [{ month: 1, year: 2022, salary: 4000 }, ...]
+  const labels = paymentData.map(dataPoint => `${getMonthName(dataPoint.month)} ${dataPoint.year}`);
   const yData = paymentData.map(dataPoint => dataPoint.salary);
 
   return (
@@ -37,7 +45,7 @@ const Chart = ({ bank_account }) => {
         width={500}
         height={300}
         series={[{ data: yData, label: 'Salary' }]}
-        xAxis={[{ data: xLabels, scaleType: 'band' }]}
+        xAxis={[{ data: labels, scaleType: 'band' }]}
       />
     </div>
   );
