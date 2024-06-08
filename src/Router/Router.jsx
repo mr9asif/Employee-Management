@@ -10,6 +10,7 @@ import Login from '../Page/Login'
 import Signup from "../Page/Signup";
 import Dashboard from "../EmployeDashboard/Dashboard";
 import HrDashboard from "../HrDashboard/HrDashboard";
+import EmployeeDetails from "../HrDashboard/EmployeeDetails";
 
 
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
         {
           path:'/hrdashboard',
           element:<HrDashboard></HrDashboard>
+        },
+        {
+          path:'/employee-details/:email',
+          element:<EmployeeDetails></EmployeeDetails>
         }
       ]
     },

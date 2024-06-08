@@ -24,6 +24,19 @@ const Signup = () => {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const watchRole = watch("role");
 
+  const generatedNumbers = new Set();
+
+  // Function to generate a unique 6-7 digit bank account number
+  const generateUniqueNumber = () => {
+    let uniqueNumber;
+    do {
+      uniqueNumber = Math.floor(100000 + Math.random() * 9000000).toString();
+    } while (generatedNumbers.has(uniqueNumber));
+    generatedNumbers.add(uniqueNumber);
+    return uniqueNumber;
+  };
+
+
   useEffect(() => {
     if (watchRole === "Employee") {
       switch (designation) {
@@ -75,6 +88,7 @@ const Signup = () => {
           salary: salary,
           photoURL: uploadedImageUrl,
           isVerified: false,
+          bank_account:generateUniqueNumber()
         };
 
         const userResponse = await axiosSecurePublic.post('/users', userInfo);

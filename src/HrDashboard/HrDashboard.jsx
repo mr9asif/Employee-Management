@@ -11,13 +11,14 @@ const HrDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [worksheets, setWorksheets] = useState([]);
   const [isLoadingWorksheets, setIsLoadingWorksheets] = useState(false);
+  
 
   const fetchWorksheets = async (email) => {
     setIsLoadingWorksheets(true);
     try {
       const res = await axiosSecurePublic.get(`/worksheets/${email}`);
       setWorksheets(res.data);
-      console.log(res);
+
     } catch (error) {
       console.error('Failed to fetch worksheets', error);
     } finally {
@@ -30,7 +31,8 @@ const HrDashboard = () => {
     queryFn: async () => {
       try {
         const res = await axiosSecurePublic.get('/employee');
-        return res.data;
+        
+        return res.data.filter(user => user.role === 'Employee');
       } catch (error) {
         throw new Error('Failed to fetch employee data');
       }
@@ -107,7 +109,7 @@ const HrDashboard = () => {
                   {item.isVerified ? '✅' : '❌'}
                 </button>
               </td>
-              <td className="py-2 px-4 pl-16 border-b">{item.bankAccount}</td>
+              <td className="py-2 px-4 pl-16 border-b">{item.bank_account}</td>
               <td className="py-2 px-4 pl-12 border-b">{item.salary}</td>
               <td className="py-2 px-4 border-b pl-12">
                 <button
@@ -121,12 +123,12 @@ const HrDashboard = () => {
                 </button>
               </td>
               <td className="py-2 px-4 border-b pl-12">
-                <Link to="employeeDetails">
-                  <button className="px-3 py-2 bg-yellow-400 hover:bg-orange-600 rounded-lg">
-                    Details
-                  </button>
-                </Link>
-              </td>
+              <Link to={`/employee-details/${item.email}`}>
+                <button className="px-3 py-2 bg-yellow-400 hover:bg-orange-600 rounded-lg">
+                  Details
+                </button>
+              </Link>
+            </td>
             </tr>
           ))}
         </tbody>

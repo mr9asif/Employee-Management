@@ -10,7 +10,7 @@ const Navbar = () => {
     console.log(user)
     return (
         <div className="max-w-8xl mx-auto bg-black fixed z-30 bg-opacity-30 ">
-            <div className="navbar bg-black fixed z-10 bg-opacity-30">
+            <div className="navbar bg-black fixed z-10 bg-opacity-30 h-[70px]">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
