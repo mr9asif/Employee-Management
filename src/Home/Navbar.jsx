@@ -47,6 +47,7 @@ const Navbar = () => {
                                 <>
                                   {role === 'HR' && <NavLink to="/hrdashboard"   className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-white font-bold'}>HR Dashboard</NavLink>}
                                   {role === 'Employee' && <NavLink to="/emdashboard"   className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-white font-bold'}>Employee Dashboard</NavLink>}
+                                  {role === 'Admin' && <NavLink to="/admindashboard"   className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-white font-bold'}>Admin Dashboard</NavLink>}
                                 </>
                               )}
                             

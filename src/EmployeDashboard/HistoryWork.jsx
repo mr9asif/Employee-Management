@@ -48,9 +48,9 @@ const HistoryWork = () => {
                 <tbody>
                     {currentData?.map(item => (
                         <tr key={item._id} className="border border-gray-500 text-center">
-                            <td className="border border-gray-500 p-2">{getMonthName(item.month)}</td>
-                            <td className="border border-gray-500 p-2">{item.salary}</td>
-                            <td className="border border-gray-500 p-2">{item._id}</td>
+                            <td className="border border-gray-500 text-blue-600 p-2">{getMonthName(item.month)}</td>
+                            <td className="border border-gray-500 text-blue-600 p-2">{item.salary}</td>
+                            <td className="border border-gray-500 text-blue-600 p-2">{item._id}</td>
                         </tr>
                     ))}
                 </tbody>

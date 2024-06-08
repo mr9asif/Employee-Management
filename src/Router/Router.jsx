@@ -11,6 +11,7 @@ import Signup from "../Page/Signup";
 import Dashboard from "../EmployeDashboard/Dashboard";
 import HrDashboard from "../HrDashboard/HrDashboard";
 import EmployeeDetails from "../HrDashboard/EmployeeDetails";
+import AdminDashboard from "../Admin/AdminDashboard";
 
 
 
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
         {
           path:'/employee-details/:email',
           element:<EmployeeDetails></EmployeeDetails>
+        },
+        {
+          path:'admindashboard',
+          element:<AdminDashboard></AdminDashboard>
         }
       ]
     },

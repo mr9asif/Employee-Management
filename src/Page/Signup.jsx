@@ -38,6 +38,8 @@ const Signup = () => {
 
 
   useEffect(() => {
+   
+    
     if (watchRole === "Employee") {
       switch (designation) {
         case "sales":
