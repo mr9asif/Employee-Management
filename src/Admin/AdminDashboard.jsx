@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import useSecurePublic from '../Hook/useSecurePublic';
 
 const AdminDashboard = () => {
     const axiosSecurePublic = useSecurePublic();
+    const [selectedEmployee, setSelectedEmployee] = useState(null);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const { data, isLoading, error, refetch } = useQuery({
         queryKey: ['varify'],
@@ -27,6 +29,33 @@ const AdminDashboard = () => {
         }
     };
 
+    const handleFireEmployee = async (employeeId) => {
+        try {
+            const response = await axiosSecurePublic.patch(`/fire-employee/${employeeId}`, { fired: true });
+            if (response.data.success) {
+                window.alert('Employee has been fired.');
+                refetch();
+            } else {
+                window.alert('Failed to fire employee. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error firing employee:', error);
+            window.alert('Failed to fire employee. Please try again.');
+        } finally {
+            closeModal();
+        }
+    };
+
+    const openModal = (employee) => {
+        setSelectedEmployee(employee);
+        setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setSelectedEmployee(null);
+        setModalIsOpen(false);
+    };
+
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -34,6 +63,7 @@ const AdminDashboard = () => {
     if (error) {
         return <div>Error fetching data</div>;
     }
+
 
     return (
         <div className='pt-24'>
@@ -45,8 +75,7 @@ const AdminDashboard = () => {
                             <th className='bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center block md:table-cell'>Name</th>
                             <th className='bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center block md:table-cell'>Role</th>
                             <th className='bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center block md:table-cell'>Designation</th>
-                            <th className='bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center block md:table-cell'>Make HR</th>
-                            <th className='bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center block md:table-cell'>FIRE</th>
+                            <th className='bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-center block md:table-cell'>Actions</th>
                         </tr>
                     </thead>
                     <tbody className='block md:table-row-group'>
@@ -57,14 +86,22 @@ const AdminDashboard = () => {
                                 <td className='p-2 md:border md:border-grey-500 text-center block md:table-cell'>{item.designation}</td>
                                 <td className='p-2 md:border md:border-grey-500 text-center block md:table-cell'>
                                     <button
-                                        className='btn bg-green-400 hover:bg-green-700 hover:text-white'
+                                        className={`btn bg-green-400 hover:bg-green-700 hover:text-white ${item.role === 'HR' ? 'cursor-not-allowed' : ''}`}
                                         onClick={() => handleMakeHR(item._id)}
+                                        disabled={item.role === 'HR'}
                                     >
                                         Make HR
                                     </button>
-                                </td>
-                                <td className='p-2 md:border md:border-grey-500 text-center block md:table-cell'>
-                                    <button className='btn bg-green-400 hover:bg-green-700 hover:text-white'>FIRE</button>
+                                    <button
+                                        className={`btn bg-red-400 hover:bg-red-700 hover:text-white ml-2 ${item.fired ? 'cursor-not-allowed' : ''}`}
+                                        onClick={() => handleFireEmployee(item._id)}
+                                        disabled={item.fired}
+                                    >
+                                        FIRE
+                                    </button>
+                                    {item.fired ? (
+                                        <span className="ml-2">Fired</span>
+                                    ) : null}
                                 </td>
                             </tr>
                         ))}
