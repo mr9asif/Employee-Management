@@ -12,6 +12,10 @@ import Dashboard from "../EmployeDashboard/Dashboard";
 import HrDashboard from "../HrDashboard/HrDashboard";
 import EmployeeDetails from "../HrDashboard/EmployeeDetails";
 import AdminDashboard from "../Admin/AdminDashboard";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import ErrorPage from "../Components/ErrorPage";
+import ContactUs from "../Components/ContactUs";
+import Message from "../Components/Message";
 
 
 
@@ -20,6 +24,7 @@ const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
            path:'/',
@@ -42,20 +47,34 @@ const router = createBrowserRouter([
           element:<Signup></Signup>
         },
         {
+          path:'/contactus',
+          element:<ContactUs></ContactUs>
+        },
+        {
           path:'/emdashboard',
           element:<Dashboard></Dashboard>
         },
         {
+          path:'/message',
+          element:<Message></Message>
+        },
+        {
           path:'/hrdashboard',
-          element:<HrDashboard></HrDashboard>
+          element:<PrivetRoute>
+          <HrDashboard></HrDashboard>
+          </PrivetRoute>
         },
         {
           path:'/employee-details/:email',
-          element:<EmployeeDetails></EmployeeDetails>
+          element:<PrivetRoute>
+          <EmployeeDetails></EmployeeDetails>
+          </PrivetRoute>
         },
         {
           path:'admindashboard',
-          element:<AdminDashboard></AdminDashboard>
+          element:<PrivetRoute>
+          <AdminDashboard></AdminDashboard>
+          </PrivetRoute>
         }
       ]
     },

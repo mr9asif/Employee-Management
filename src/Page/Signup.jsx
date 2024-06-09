@@ -11,7 +11,7 @@ console.log(import.meta.env.VITE_IMGBB_API)
 const imageUrl = `https://api.imgbb.com/1/upload?key=${imageFromImgbb}`;
 
 const Signup = () => {
-  const { CreateUser, Profile } = useContext(Context);
+  const { CreateUser, Profile, setLoading } = useContext(Context);
   const [error, setError] = useState('');
   const [salary, setSalary] = useState('');
   const [designation, setDesignation] = useState('');
@@ -62,6 +62,7 @@ const Signup = () => {
   }, [designation, watchRole]);
 
   const onSubmit = async (data) => {
+    const {email}=data
     try {
       console.log("Form data:", data);
       const Carent = await CreateUser(data.email, data.password);
@@ -99,6 +100,17 @@ const Signup = () => {
 
         toast.success('Sign up successfully!');
         navigate(dis);
+        const us = { email };
+        navigate('/');
+        setLoading(false)
+        axiosSecurePublic.post('/jwt', us ,  {withCredentials:true})
+.then(res => {
+console.log(res.data);
+})
+.catch(error => {
+console.log(error.message);
+});
+
       } else {
         setError('Image upload failed.');
       }

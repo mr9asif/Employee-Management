@@ -11,6 +11,7 @@ const HistoryWork = () => {
     const axiosSecurePublic = useSecurePublic();
     const [currentPage, setCurrentPage] = useState(0);
     const [dataPerPage] = useState(5); // Number of data items to display per page
+   
 
     const { data, isLoading } = useQuery({
         queryKey: ['history'],

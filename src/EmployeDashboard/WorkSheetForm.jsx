@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
-import axios from 'axios';
+
 import { Context } from '../AuthProvider/Authprovider';
-import useSecurePublic from '../Hook/useSecurePublic';
+
 import toast from 'react-hot-toast';
+import UseAxiosSecure from '../Hook/useAxiosSecure';
 
 const WorkSheetForm = () => {
-  const axiosSecurePublic = useSecurePublic();
+
+  const axioxSecure=UseAxiosSecure()
   const { user } = useContext(Context);
+  
   const [formData, setFormData] = useState({
     task: 'Sales', // Set a default value for the task
     hoursWorked: 'hoursWorked',
@@ -28,7 +31,7 @@ const WorkSheetForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axiosSecurePublic.post('/worksheet', formData)
+      await axioxSecure.post('/worksheet', formData)
         .then(res => {
           console.log('res', res.data);
           if (res.data.insertedId) {

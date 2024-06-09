@@ -21,13 +21,23 @@ const Login = () => {
       try {
           const result = await socialLogin();
           if (result.user) {
+            const {email}=result.user;
               console.log(result.user);
-
+                
               // Assign the role "Employee"
               await axiosSecurePublic.post('/social', { email: result.user.email, role: 'Employee' });
 
               toast.success('You Login Successfully!');
+              const us={email}
               navigate(from);
+
+              axiosSecurePublic.post('/jwt', us ,  {withCredentials:true})
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(error => {
+            console.log(error.message);
+        });
           }
       } catch (error) {
           console.error(error);
@@ -41,7 +51,16 @@ const Login = () => {
           const result = await Login(email, password);
           if (result.user) {
               toast.success('You Login Successfully!');
+              const {email}=result.user;
               navigate(from);
+              const us={email}
+              axiosSecurePublic.post('/jwt', us ,  {withCredentials:true})
+              .then(res => {
+                  console.log(res.data);
+              })
+              .catch(error => {
+                  console.log(error.message);
+              });
           }
       } catch (error) {
           console.error(error);
