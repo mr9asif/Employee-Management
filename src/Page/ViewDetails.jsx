@@ -9,7 +9,7 @@ const ViewDetails = () => {
      const {title,shortDescription,_id, longDescription, image}=item;
 
     useEffect(() => {
-        fetch(`http://localhost:4000/viewdetails/${id}`)
+        fetch(`https://as-12-server-weld.vercel.app/viewdetails/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

@@ -67,7 +67,7 @@ const HrDashboard = () => {
   };
 
   if (isLoading || isLoadingWorksheets) {
-    return <div className="max-w-4xl mx-auto  text-center my-48"><span className="loading loading-bars text-blue-600 text-center loading-lg"></span></div>;
+    return <div className="max-w-4xl mx-auto  text-center pt-44 pb-96"><span className="loading loading-bars text-blue-600 text-center loading-lg"></span></div>;
   }
 
   if (isError) {

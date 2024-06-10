@@ -54,7 +54,7 @@ const AdminDashboard = () => {
         setModalIsOpen(false);
     };
 
-    if (isLoading) return <div className="max-w-4xl mx-auto  text-center my-48"><span className="loading loading-bars text-blue-600 text-center loading-lg"></span></div>;
+    if (isLoading) return <div className="max-w-4xl mx-auto  text-center pt-44 pb-96"><span className="loading loading-bars text-blue-600 text-center loading-lg"></span></div>;
 
     if (error) {
         return <div>Error fetching data</div>;

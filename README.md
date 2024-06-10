@@ -41,7 +41,7 @@ The Employee Management Website is a comprehensive platform designed to streamli
 
 
 
-
+## Live Site: https://thunderous-brioche-852547.netlify.app/
 
 ## Admin Access:
 - **Email**: asifkhan@gmail.com

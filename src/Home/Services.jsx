@@ -7,7 +7,7 @@ const Services = () => {
     const { data, isLoading, error } = useQuery({
         queryFn: async () => {
             try {
-                const response = await axios.get('http://localhost:4000/services');
+                const response = await axios.get('https://as-12-server-weld.vercel.app/services');
                 return response.data; // Return the data fetched from the API
             } catch (error) {
                 throw new Error('Failed to fetch services'); // Throw an error in case of failure

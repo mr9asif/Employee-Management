@@ -47,19 +47,19 @@ const Login = () => {
     try {
       const result = await Login(email, password);
       if (result.user) {
-        // Pass the email to the server
+        
         const us = { email: result.user.email };
         axiosSecurePublic.post('/jwt', us, { withCredentials: true })
           .then(res => {
             console.log(res.data);
+            toast.success('You successfully Login!')
+            navigate(from)
           })
           .catch(error => {
-            console.log(error.response); // Log the full response for debugging
+            console.log(error.response); 
             if (error.response && error.response.status === 403) {
-              setError('You are Fired By Admin!');
-              // Logout the user to prevent successful login
-              // This depends on how you handle authentication in your app
-              // Example: logout();
+              setError('You are Fired By Admin! You can not access your previous Role!!');
+            
             } else {
               toast.success('You Login Successfully!');
               navigate(from);

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IoClose } from 'react-icons/io5';
 import axios from 'axios'; // Assuming you're using axios for HTTP requests
 import useSecurePublic from '../Hook/useSecurePublic';
+import toast from 'react-hot-toast';
 
 const Modal = ({ isOpen, onClose, employee, worksheets, onPay }) => {
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
@@ -59,7 +60,7 @@ const Modal = ({ isOpen, onClose, employee, worksheets, onPay }) => {
     );
 
     if (existingPayment) {
-      alert('Payment for this month and year already exists for this bank account.');
+       toast.success('Payment for this month and year already exists for this bank account.')
       return;
     }
 
@@ -75,7 +76,7 @@ const Modal = ({ isOpen, onClose, employee, worksheets, onPay }) => {
     try {
       await axiosSecurePublic.post('/Postpayments', newPayment);
       onPay(newPayment);
-      alert('Payment successful!');
+      toast.success('Payment successful!')
       onClose();
     } catch (error) {
       console.error('Error making payment:', error);

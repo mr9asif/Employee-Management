@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosSecurePublic=axios.create({
-    baseURL:'http://localhost:4000',
+    baseURL:'https://as-12-server-weld.vercel.app',
 })
 const useSecurePublic = () => {
     return axiosSecurePublic
