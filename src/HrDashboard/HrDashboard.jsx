@@ -4,6 +4,7 @@ import useSecurePublic from '../Hook/useSecurePublic';
 import { Link } from 'react-router-dom';
 import Modal from './Modal'; // Import the Modal component
 import WorkRecordsPage from './WorkRecordsPage';
+import UseAxiosSecure from '../Hook/useAxiosSecure';
 
 const HrDashboard = () => {
   const axiosSecurePublic = useSecurePublic();
@@ -14,6 +15,7 @@ const HrDashboard = () => {
   const [isLoadingWorksheets, setIsLoadingWorksheets] = useState(false);
   
 
+  const axiosSecure=UseAxiosSecure()
   const fetchWorksheets = async (email) => {
     setIsLoadingWorksheets(true);
     try {
@@ -31,7 +33,7 @@ const HrDashboard = () => {
     queryKey: ['user'],
     queryFn: async () => {
       try {
-        const res = await axiosSecurePublic.get('/employee');
+        const res = await axiosSecure.get('/employee');
         
         return res.data.filter(user => user.role === 'Employee');
       } catch (error) {
@@ -65,7 +67,7 @@ const HrDashboard = () => {
   };
 
   if (isLoading || isLoadingWorksheets) {
-    return <div>Loading...</div>;
+    return <div className="max-w-4xl mx-auto  text-center my-48"><span className="loading loading-bars text-blue-600 text-center loading-lg"></span></div>;
   }
 
   if (isError) {

@@ -13,7 +13,7 @@ const Message = () => {
         }
     });
 
-    if (isLoading) return <div className="text-center text-gray-500">Loading...</div>;
+    if (isLoading) return <div className="max-w-4xl mx-auto  text-center my-48"><span className="loading loading-bars text-blue-600 text-center loading-lg"></span></div>;
     if (error) return <div className="text-center text-red-500">Error: {error.message}</div>;
 
     return (

@@ -102,10 +102,10 @@ const Signup = () => {
         navigate(dis);
         const us = { email };
         navigate('/');
-        setLoading(false)
         axiosSecurePublic.post('/jwt', us ,  {withCredentials:true})
-.then(res => {
-console.log(res.data);
+        .then(res => {
+          console.log(res.data);
+          setLoading(false)
 })
 .catch(error => {
 console.log(error.message);

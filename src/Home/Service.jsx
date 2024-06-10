@@ -4,7 +4,8 @@ const Service = ({item}) => {
     const {title,shortDescription,_id, longDescription, image}=item;
     // console.log(item)
     return (
-        <div className="border-l-orange-200-100 shadow-lg bg-slate-200 rounded-md relative h-[520px]">
+        <div data-aos="fade-up"
+        data-aos-duration="1200" className="border-l-orange-200-100 shadow-lg bg-slate-200 rounded-md relative h-[520px]">
             <img className="w-full h-[300px] p-2" src={image} alt="" />
            <div className="p-4">
            <h1 className="text-2xl font-bold text-yellow-600">{title}</h1>

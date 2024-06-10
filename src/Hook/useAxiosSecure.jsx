@@ -6,7 +6,7 @@ import { Context } from "../AuthProvider/Authprovider";
 
 
  const  axioxSecure = axios.create({
-    baseURL:'http://localhost:4000',
+    baseURL:'http://localhost:4000/',
     withCredentials:true
 })
 

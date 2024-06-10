@@ -1,3 +1,4 @@
+import Team from "../Components/Team";
 import AboutUs from "./AboutUs";
 import Achievement from "./Achievement";
 import Banner from "./Banner";
@@ -19,6 +20,7 @@ const Home = () => {
            <Question></Question>
            <Achievement></Achievement>
            <Partnership></Partnership>
+           <Team></Team>
            <Testimonial></Testimonial>
           
         </div>

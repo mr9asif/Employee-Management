@@ -53,7 +53,9 @@ const router = createBrowserRouter([
         },
         {
           path:'/emdashboard',
-          element:<Dashboard></Dashboard>
+          element:<PrivetRoute>
+          <Dashboard></Dashboard>
+          </PrivetRoute>
         },
         {
           path:'/about',

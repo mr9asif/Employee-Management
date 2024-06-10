@@ -34,11 +34,14 @@ const AchievementItem = ({ backgroundImage, endValue, prefix }) => {
 
 const Achievement = () => {
     return (
-        <div className="w-[95%]  lg:max-w-7xl mx-auto">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl mt-16 mb-5 text-yellow-600 text-center">Our Achievement</h1>
-            <h1 className="tracking-[6px] mb-8 font-semibold lg:text-3xl text-center text-orange-800">Explore Our Achievement</h1>
+        <div  className="w-[95%]  lg:max-w-7xl mx-auto">
+            <h1 data-aos="fade-up"
+            data-aos-duration="1200" className="text-2xl md:text-3xl lg:text-4xl mt-16 mb-5 text-yellow-600 text-center">Our Achievement</h1>
+            <h1 data-aos="fade-up"
+            data-aos-duration="1200" className="tracking-[6px] mb-8 font-semibold lg:text-3xl text-center text-orange-800">Explore Our Achievement</h1>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div data-aos="fade-up"
+            data-aos-duration="1200" className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <AchievementItem
                     backgroundImage="https://i.postimg.cc/tg5q41qZ/best-project-management-companie.jpg"
                     endValue={2500}

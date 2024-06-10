@@ -20,14 +20,14 @@ const AllServices = () => {
     // Log the data to console (for debugging purposes)
   
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <div className="max-w-4xl mx-auto  text-center pt-44 pb-96"><span className="loading loading-bars text-blue-600 text-center loading-lg"></span></div>;
     if (error) return <div>Error loading services</div>;
 
     return (
         <div className="max-w-7xl mx-auto pt-24">
         <h1 className="text-xl md:text-3xl lg:text-4xl  mb-5 text-yellow-600 text-center">Our Services</h1>
         
-         <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-3 md:grid-cols-2  gap-3">
+         <div className="max-w-7xl mx-auto grid lg:grid-cols-3 md:grid-cols-2  gap-3">
          {
             data.map(item => (
                 <Item key={item._id} item={item}></Item>
