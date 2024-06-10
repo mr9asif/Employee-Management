@@ -77,6 +77,7 @@ const Navbar = () => {
                                     {role === 'Admin' && <NavLink to='/message' className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-white font-bold'}>Message</NavLink>}
                                 </>
                             )}
+                                 <NavLink to='/contactus' className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-white font-bold'}>Contact Us</NavLink>
                         </ul>
                     </div>
                     <div className="mx-3 flex justify-center items-center gap-4">
@@ -95,7 +96,7 @@ const Navbar = () => {
                                                 handleSignOut();
                                                 closeDropdown();
                                             }}
-                                            className="block w-full text-left px-3 rounded-lg   py-2 text-sm text-white bg-green-400 hover:bg-green-700"
+                                            className="block w-full text-left px-3 rounded-lg   py-2 text-sm text-white bg-gradient-to-r from-blue-500 to-teal-400 hover:bg-blue-700"
                                         >
                                             Sign Out
                                         </button>
@@ -104,8 +105,8 @@ const Navbar = () => {
                             </div>
                         ) : (
                             <div className="flex items-center gap-2">
-                                <Link to='/signup' className="btn bg-green-500 hover:bg-green-700 text-white">Sign Up</Link>
-                                <Link to='/login' className="btn bg-green-500 hover:bg-green-700 text-white">Log In</Link>
+                                <Link to='/signup' className="btn bg-gradient-to-r from-blue-500 to-teal-400 hover:bg-blue-700 text-white">Sign Up</Link>
+                                <Link to='/login' className="btn bg-gradient-to-r from-blue-500 to-teal-400 hover:bg-blue-700 text-white">Log In</Link>
                             </div>
                         )}
                     </div>

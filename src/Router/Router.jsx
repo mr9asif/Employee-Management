@@ -16,6 +16,7 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import ErrorPage from "../Components/ErrorPage";
 import ContactUs from "../Components/ContactUs";
 import Message from "../Components/Message";
+import AboutUs from "../Components/AboutUs";
 
 
 
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
         {
           path:'/emdashboard',
           element:<Dashboard></Dashboard>
+        },
+        {
+          path:'/about',
+          element:<AboutUs></AboutUs>
         },
         {
           path:'/message',

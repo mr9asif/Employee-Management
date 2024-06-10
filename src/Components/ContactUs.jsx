@@ -25,9 +25,10 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mx-auto pt-32 mb-8">
-            <h2 className="text-2xl font-bold mb-6 text-center">Contact Us</h2>
-            <form onSubmit={handleSubmit}>
+        <div className="bg-gradient-to-r from-blue-500 to-teal-400 p-8 rounded-lg shadow-lg w-full max-w-md mx-auto pt-32 mb-8">
+            <h2 className="text-3xl font-bold mb-6 text-center text-white">We'd love to hear from you!</h2>
+            <p className="text-center text-white mb-6">support@employeemanagement.com</p>
+            <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
                 <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
                         Email:
@@ -58,12 +59,12 @@ const ContactUs = () => {
                 </div>
                 <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-600 transition duration-300"
+                    className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-300"
                 >
-                    Submit
+                    Send
                 </button>
+                {formMessage && <p className="mt-4 text-red-500 text-center">{formMessage}</p>}
             </form>
-            
         </div>
     );
 };
