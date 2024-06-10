@@ -45,25 +45,34 @@ const Login = () => {
   const onSubmit = async (data) => {
     const { email, password } = data;
     try {
-        const result = await Login(email, password);
-        if (result.user) {
-            toast.success('You Login Successfully!');
-            const {email}=result.user;
-            navigate(from);
-            const us={email}
-            axiosSecurePublic.post('/jwt', us ,  {withCredentials:true})
-            .then(res => {
-                console.log(res.data);
-            })
-            .catch(error => {
-                console.log(error.message);
-            });
-        }
+      const result = await Login(email, password);
+      if (result.user) {
+        // Pass the email to the server
+        const us = { email: result.user.email };
+        axiosSecurePublic.post('/jwt', us, { withCredentials: true })
+          .then(res => {
+            console.log(res.data);
+          })
+          .catch(error => {
+            console.log(error.response); // Log the full response for debugging
+            if (error.response && error.response.status === 403) {
+              setError('You are Fired By Admin!');
+              // Logout the user to prevent successful login
+              // This depends on how you handle authentication in your app
+              // Example: logout();
+            } else {
+              toast.success('You Login Successfully!');
+              navigate(from);
+            }
+          });
+      }
     } catch (error) {
-        console.error(error);
-        setError('Invalid Email or Password!');
+      console.error(error);
+      setError('Invalid Email or Password!');
     }
-};
+  };
+  
+  
 
   return (
     <div className="md:flex lg:flex justify-between items-center max-w-6xl mx-auto px-5">
