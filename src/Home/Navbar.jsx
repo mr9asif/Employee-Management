@@ -104,7 +104,7 @@ const Navbar = () => {
                                 )}
                             </div>
                         ) : (
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1 lg:gap-2">
                                 <Link to='/signup' className="btn bg-gradient-to-r from-blue-500 to-teal-400 hover:bg-blue-700 text-white">Sign Up</Link>
                                 <Link to='/login' className="btn bg-gradient-to-r from-blue-500 to-teal-400 hover:bg-blue-700 text-white">Log In</Link>
                             </div>

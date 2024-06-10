@@ -24,9 +24,9 @@ const Services = () => {
 
     return (
         <div>
-            <h1 className="text-4xl mt-16 mb-5 text-yellow-600 text-center">Our Services</h1>
-             <h1 className="tracking-[6px] mb-8 font-semibold text-3xl text-center text-orange-800">Explore Our Services</h1>
-             <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-3 md:grid-cols-2  gap-3">
+            <h1 className="text-xl md:text-3xl lg:text-4xl mt-16 mb-5 text-yellow-600 text-center">Our Services</h1>
+             <h1 className="tracking-[6px] mb-8 font-semibold text-xl md:text-2xl lg:text-3xl text-center text-orange-800">Explore Our Services</h1>
+             <div className="w-[95%] lg:max-w-7xl mx-auto lg:grid lg:grid-cols-3 md:grid-cols-2  gap-3">
              {
                 data.slice(0,6).map(item => (
                     <Service key={item._id} item={item}></Service>

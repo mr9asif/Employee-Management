@@ -13,7 +13,7 @@ const Partnership = () => {
     return (
         <div className="my-6 w-[96%] lg:max-w-7xl mx-auto mt-12">
         <h1 data-aos='zoom-in-up' data-aos-duration="1000" className="tracking-[12px] font-semibold text-xl text-center text-green-400">PARTNERSHIP</h1>
-        <h1 data-aos='zoom-in-down' data-aos-duration="1000" className="tracking-[6px] mb-8 font-semibold text-4xl text-center text-orange-800">Explore Our Partnership</h1>
+        <h1 data-aos='zoom-in-down' data-aos-duration="1000" className="tracking-[6px] mb-8 font-semibold lg:text-4xl text-center text-orange-800">Explore Our Partnership</h1>
         
         <div className='h-[300px]'>
         <Swiper

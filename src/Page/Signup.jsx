@@ -222,7 +222,7 @@ console.log(error.message);
               </label>
               <h1 className='my-4 text-red-400'>{error}</h1>
               <div className="form-control mt-6">
-                <button type='submit' className="btn btn-primary  bg-green-500 hover:bg-green-700">Sign Up</button>
+                <button type='submit' className="btn btn-primary  bg-gradient-to-r from-blue-500 to-teal-400 hover:bg-green-700">Sign Up</button>
               </div>
             </form>
           </div>

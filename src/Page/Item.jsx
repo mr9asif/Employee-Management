@@ -18,7 +18,7 @@ const Item = ({item}) => {
            </div>
            <div className="absolute bottom-0 left-0 right-0 flex justify-between items-center mb-3 px-6 my-2">
            <Link to={`/viewdetails/${_id}`}>
-           <button className="text-[13px]  lg:text-xl w-12 h-[30px] lg:w-32 rounded-xl lg:h-[40px] bg-green-500 text-white relative overflow-hidden group z-10 hover:text-white duration-1000"><span className="absolute bg-green-500 size-36 rounded-xl group-hover:scale-100 scale-0 -z-10 -left-2 -top-10 group-hover:duration-500 duration-700 origin-center transform transition-all"></span><span className="absolute bg-orange-600 size-36 -left-2 -top-10 rounded-full group-hover:scale-100 scale-0 -z-10 group-hover:duration-700 duration-500 origin-center transform transition-all"></span>ViewDetails</button>
+           <button className="text-[13px]  lg:text-xl w-28 h-[30px] lg:w-32 rounded-xl lg:h-[40px] bg-green-500 text-white relative overflow-hidden group z-10 hover:text-white duration-1000"><span className="absolute bg-green-500 size-36 rounded-xl group-hover:scale-100 scale-0 -z-10 -left-2 -top-10 group-hover:duration-500 duration-700 origin-center transform transition-all"></span><span className="absolute bg-orange-600 size-36 -left-2 -top-10 rounded-full group-hover:scale-100 scale-0 -z-10 group-hover:duration-700 duration-500 origin-center transform transition-all"></span>ViewDetails</button>
        </Link>
        </div>
         </div>

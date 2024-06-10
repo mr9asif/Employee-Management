@@ -4,7 +4,7 @@ const AboutUs = () => {
     return (
         <div className="container mx-auto p-6 pt-24">
             <div className="bg-white shadow-md rounded-lg p-8">
-                <h1 className="text-3xl font-bold text-gray-800 mb-4">About EmployeeManagement</h1>
+                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4">About EmployeeManagement</h1>
                 <p className="text-gray-700 mb-6">
                     Welcome to EmployeeManagement, where we provide top-notch services to help you manage your workforce efficiently and effectively. Our mission is to empower businesses with the tools and support they need to optimize their human resource processes.
                 </p>

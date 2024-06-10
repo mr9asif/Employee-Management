@@ -34,9 +34,9 @@ const AchievementItem = ({ backgroundImage, endValue, prefix }) => {
 
 const Achievement = () => {
     return (
-        <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl mt-16 mb-5 text-yellow-600 text-center">Our Achievement</h1>
-            <h1 className="tracking-[6px] mb-8 font-semibold text-3xl text-center text-orange-800">Explore Our Achievement</h1>
+        <div className="w-[95%]  lg:max-w-7xl mx-auto">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl mt-16 mb-5 text-yellow-600 text-center">Our Achievement</h1>
+            <h1 className="tracking-[6px] mb-8 font-semibold lg:text-3xl text-center text-orange-800">Explore Our Achievement</h1>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <AchievementItem
