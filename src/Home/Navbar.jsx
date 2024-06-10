@@ -31,7 +31,7 @@ const Navbar = () => {
                            
                             <NavLink to='/about' className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-black font-bold'}>ABOUT US</NavLink>
                           {
-                            role === 'Admin' &&  <NavLink to='/msg' className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-black font-bold'}>Message</NavLink>
+                            role === 'Admin' &&  <NavLink to='/message' className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-black font-bold'}>Message</NavLink>
                           }
                           {user && !loading && (
                             <>
@@ -64,7 +64,7 @@ const Navbar = () => {
                             
                             <NavLink to='/about' className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-white font-bold'}>About Us</NavLink>
                             {
-                                role === 'Admin' &&   <NavLink to='/msg' className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-white font-bold'}>Message</NavLink>
+                                role === 'Admin' &&   <NavLink to='/message' className={({ isActive }) => isActive ? 'text-green-600 font-bold' : 'text-white font-bold'}>Message</NavLink>
                             }
                             {user && !loading && (
                                 <>
