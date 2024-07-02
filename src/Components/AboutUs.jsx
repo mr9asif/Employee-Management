@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
     return (
-        <div className="container mx-auto p-6 pt-24">
+        <div className="container mx-auto p-6  pt-24 md:mb-">
             <div className="bg-white shadow-md rounded-lg p-8">
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4">About EmployeeManagement</h1>
                 <p className="text-gray-700 mb-6">
@@ -11,7 +11,7 @@ const AboutUs = () => {
                 
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">Our Services</h2>
                 <ul className="list-disc list-inside text-gray-700 mb-6">
-                    <li><strong>HR Management:</strong> Comprehensive HR solutions to manage employee data, benefits, payroll, and compliance.</li>
+                <li><strong>HR Management:</strong> Comprehensive HR solutions to manage employee data, benefits, payroll, and compliance.</li>
                     <li><strong>Employee Self-Service:</strong> A self-service portal where employees can view their information, request leaves, and manage their profiles.</li>
                     <li><strong>Performance Management:</strong> Tools to track employee performance, set goals, and conduct reviews.</li>
                     <li><strong>Recruitment Solutions:</strong> End-to-end recruitment services to attract, hire, and onboard top talent.</li>
